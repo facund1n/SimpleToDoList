@@ -16,22 +16,22 @@ const evento = document
 	.addEventListener("submit", function (e) {
 		const input = document.getElementById("input").value;
 
-		dato = new Data(input);
+		data = new Data(input);
 		vista = new Vista();
 
-		listadoItems.push(dato);
+		listadoItems.push(data);
 		localStorage.setItem("listadoItems", JSON.stringify(listadoItems));
 
-		vista.agregarItems(dato);
+		vista.addItems(data);
 		e.preventDefault();
 	});
 
 class Vista {
-	agregarItems() {
+	addItems() {
 		const items = document.getElementById("items");
 		const element = document.createElement("div");
 		element.innerHTML = `
-        <ul><li>${dato._input}</li></ul>
+        <ul><li>${data._input}</li></ul>
         `;
 		items.appendChild(element);
 	}
